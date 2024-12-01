@@ -1,0 +1,45 @@
+<div class="flex flex-col md:py-10 md:px-16 md:gap-10 px-8 py-5 gap-10 items-center">
+  <h1 class="md:text-4xl text-xl font-bold">Cadastro</h1>
+  <div class="grid gap-6">
+    <div class="grid gap-1">
+      <label for="nome">Nome</label>
+      <input type="text" id="nome"[(ngModel)]="cliente.nome" class="bg-neutral-800 rounded-lg md:w-[30rem] md:h-10 px-2 border-neutral-400 outline-none focus:border"/>
+    </div>
+    <div class="grid gap-1">
+      <label for="email">E-mail</label>
+      <input type="email" id="email" [(ngModel)]="cliente.email" class="bg-neutral-800 rounded-lg md:w-[30rem] md:h-10 px-2 border-neutral-400 outline-none focus:border"/>
+    </div>
+    <div class="grid gap-1">
+      <label for="documento">CPF</label>
+      <input type="text" id="documento" [(ngModel)]="cliente.documento" class="bg-neutral-800 rounded-lg md:w-[20rem] md:h-10 px-2 border-neutral-400 outline-none focus:border"/>
+    </div>
+    <div class="grid gap-1">
+      <label for="telefone">Telefone</label>
+      <input type="text" id="telefone" [(ngModel)]="cliente.telefone" class="bg-neutral-800 rounded-lg md:w-[20rem] md:h-10 px-2 border-neutral-400 outline-none focus:border"/>
+    </div>
+    <div class="grid gap-1">
+      <label for="cep">CEP</label>
+      <input type="text" id="cep" [(ngModel)]="cliente.cep" class="bg-neutral-800 rounded-lg md:w-[20rem] md:h-10 w-full h-8 px-2 border-neutral-400 outline-none focus:border"/>
+    </div>
+    <div class="grid gap-1">
+      <label for="endereco">Endereço</label>
+      <input type="text" id="endereco" [(ngModel)]="cliente.endereco" class="bg-neutral-800 rounded-lg md:w-[30rem] md:h-10 w-full h-8 px-2 border-neutral-400 outline-none focus:border"/>
+    </div>
+    <div class="flex md:w-[30rem] w-full md:justify-between gap-5">
+      <div class="grid gap-1" >
+        <label for="cidade">Cidade</label>
+        <input type="text" id="cidade" [(ngModel)]="cliente.cidade" class="bg-neutral-800 rounded-lg md:w-[20rem] md:h-10 w-40 h-8 px-2 border-neutral-400 outline-none focus:border"/>
+      </div>
+      <div class="grid gap-1" >
+        <label for="estado">Estado</label>
+        <input type="text" id="estado" [(ngModel)]="cliente.estado" class="bg-neutral-800 rounded-lg md:h-10 w-20 h-8 px-2 border-neutral-400 outline-none focus:border"/>
+      </div>
+    </div>
+    <div class="grid gap-1">
+      <label for="senha">Senha</label>
+      <input type="password" id="senha" [(ngModel)]="cliente.senha" class="bg-neutral-800 rounded-lg md:w-[20rem] md:h-10 w-full h-8 px-2 border-neutral-400 outline-none focus:border"/>
+    </div>
+  </div>
+  <button type="" class="md:w-[30rem] w-full bg-white text-black font-bold text-xl py-4 items-center rounded-lg" (click)="cadastrar()">Cadastrar</button>
+  <hlm-toaster class="bg-neutral-950"/>
+</div>

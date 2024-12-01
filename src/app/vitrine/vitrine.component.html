@@ -1,0 +1,24 @@
+<div class="px-16 flex flex-col divide-y divide-neutral-700 pb-16">
+  <div class="pt-8 pb-4 flex items-center w-full justify-between">
+    <h1 class="text-4xl font-bold">Todos os produtos</h1>
+    <div class="flex gap-6 items-center">
+      <button type="" class="flex items-center font-bold text-sm">Mostrar filtros</button>
+      <button type="" class="flex items-center font-bold text-sm">Ordenar</button>
+    </div>
+  </div>
+  <div class="grid grid-cols-3 gap-12 py-4">
+    @for (produto of lista; track produto.codigo) {
+      <a [routerLink]="['/item/', produto.nome, produto.codigo]" class="group">
+        <img [src]="'/shoes/' + produto.codigo + '/principal.png'" alt="{{produto.nome}}" class="w-full">
+          <div class="flex flex-col justify-between h-48 md:h-40 rounded-b-md py-3">
+            <div class="flex flex-col gap-1">
+              <p class="w-fit font-bold">{{produto.nome}}</p>
+              <p class="w-fit">{{produto.genero}}</p>
+              <p class="w-fit">{{produto.categoria}}</p>
+            </div>
+            <p class="w-fit font-bold">{{produto.preco | currency: 'BRL':'symbol':'.2-2'}}</p>
+          </div>
+      </a>
+    }
+  </div>
+</div>

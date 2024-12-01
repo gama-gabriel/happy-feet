@@ -1,0 +1,19 @@
+@if (cliente.codigo == 1) {
+  <p class="flex w-full justify-center font-bold py-10">Você ja está logado!</p>
+} @else {
+  <div class="flex flex-col md:py-10 md:px-16 md:gap-10 px-8 py-5 gap-10 items-center">
+    <h1 class="md:text-4xl text-xl font-bold">Login</h1>
+    <div class="grid gap-6">
+      <div class="grid gap-1">
+        <label for="email">E-mail</label>
+        <input type="email" id="email" [(ngModel)]="email" class="bg-neutral-800 rounded-lg md:w-[30rem] md:h-10 px-2 border-neutral-400 outline-none focus:border"/>
+      </div>
+      <div class="grid gap-1">
+        <label for="senha">Senha</label>
+        <input type="password" id="senha" [(ngModel)]="senha" class="bg-neutral-800 rounded-lg md:w-[20rem] md:h-10 w-full h-8 px-2 border-neutral-400 outline-none focus:border"/>
+      </div>
+    </div>
+    <button type="" class="md:w-[30rem] w-full bg-white text-black font-bold text-xl py-4 items-center rounded-lg" (click)="logar()">Login</button>
+    <hlm-toaster class="bg-neutral-950"/>
+  </div>
+}

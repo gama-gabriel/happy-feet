@@ -1,0 +1,33 @@
+<div class="px-4 md:px-16 flex flex-col divide-y divide-neutral-700 pb-16">
+  <div class="pt-8 pb-4 flex items-center w-full justify-between">
+    <h1 class="md:text-4xl text-xl font-bold">Resultados da busca por: {{termoBuscado}}</h1>
+    <div class="flex gap-6 items-center">
+      <button type="button" class="flex items-center font-bold text-sm">Mostrar filtros</button>
+      <button type="button" class="flex items-center font-bold text-sm">Ordenar</button>
+    </div>
+  </div>
+
+  @if (resultadosBusca.length > 0) {
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-12 py-4">
+      @for (produto of resultadosBusca; track produto.codigo) {
+      <div>
+        <a [routerLink]="['/item/', produto.nome, produto.codigo]" class="group">
+          <img [src]="'/shoes/' + produto.codigo + '/principal.png'" alt="{{produto.nome}}" class="w-full">
+          <div class="flex flex-col justify-between h-48 md:h-40 bg-neutral-900 rounded-b-md p-3 border-x border-b border-neutral-700 group-hover:bg-neutral-800">
+            <div class="flex flex-col gap-1">
+              <p class="w-fit font-bold">{{produto.nome}}</p>
+              <p class="w-fit">{{produto.genero}}</p>
+              <p class="w-fit">{{produto.categoria}}</p>
+            </div>
+            <p class="w-fit font-bold">{{produto.preco | currency: 'BRL':'symbol':'.2-2'}}</p>
+          </div>
+        </a>
+      </div>
+      }
+    </div>
+  } @else {
+    <div>
+      <p>Não foram encontrados resultados</p>
+    </div>
+  }
+</div>
