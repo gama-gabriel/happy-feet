@@ -13,7 +13,7 @@ import { DataService } from '../data.service';
 })
 export class VitrineComponent {
   constructor(private dataService: DataService) { }
-  public listaApi: any;
+  public listaApi: any = [];
 
   ngOnInit() {
     this.carregar();

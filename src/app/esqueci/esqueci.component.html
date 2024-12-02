@@ -5,12 +5,7 @@
       <label for="email">E-mail</label>
       <input type="email" id="email" [(ngModel)]="email" class="bg-neutral-300 rounded-lg md:w-[30rem] md:h-10 px-2 border-neutral-400 text-lg outline-none focus:border"/>
     </div>
-    <div class="grid gap-1">
-      <label for="senha">Senha</label>
-      <input type="password" id="senha" [(ngModel)]="senha" class="bg-neutral-300 rounded-lg md:w-[20rem] md:h-10 w-full h-8 px-2 text-lg border-neutral-500 outline-none focus:border"/>
-    </div>
-    <button (click)="esqueci()">Esqueci minha senha</button>
   </div>
-  <button type="" class="md:w-[30rem] w-full bg-black text-white font-bold text-xl py-4 items-center rounded-lg" (click)="logar()">Login</button>
+  <button type="" class="md:w-[30rem] w-full bg-black text-white font-bold text-xl py-4 items-center rounded-lg" (click)="recuperar()">Recuperar senha</button>
   <hlm-toaster class="bg-neutral-950"/>
 </div>

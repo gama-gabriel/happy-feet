@@ -7,10 +7,10 @@
       <p class="text-2xl font-bold py-4">{{item.preco | currency: "BRL":'symbol':'.2-2'}}</p>
       <p class="pb-2 font-bold">Tamanhos</p>
       <div class="grid grid-cols-4 md:grid-cols-6 gap-4 pb-5">
-        <button type="" *ngFor="let i of item.tamanhos" class="rounded-md border-2 border-neutral-500 p-3 items-center justify-center" [ngClass]="{'bg-neutral-600 border-neutral-50': i === item.tamanhoSelecionado, 'bg-transparent': i !== item.tamanhoSelecionado}" (click)="selecionarTamanho(i)">{{i}}</button>
+        <button type="" *ngFor="let i of item.tamanhos" class="rounded-lg border-2 border-neutral-500 p-3 items-center justify-center" [ngClass]="{'bg-neutral-300 border-neutral-50': i === item.tamanhoSelecionado, 'bg-transparent': i !== item.tamanhoSelecionado}" (click)="selecionarTamanho(i)">{{i}}</button>
       </div>
-      <hlm-toaster class="bg-neutral-950"/>
-      <button type="" (click)="adicionarAoCarrinho(item)" class="w-full bg-white text-black text-lg font-bold flex place-center rounded-2xl p-4 items-center justify-center">Adicionar ao carrinho</button>
+      <hlm-toaster class="bg-neutral-100"/>
+      <button type="" (click)="adicionarAoCarrinho(item)" class="w-full bg-white rounded-2xl text-white text-lg font-bold flex place-center rounded-2xl p-4 items-center justify-center">Adicionar ao carrinho</button>
       @if (semTamanho) {
         <p class="text-red-300">Selecione um tamanho!</p>
       }

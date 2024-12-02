@@ -1,17 +1,10 @@
-<div class="px-4 md:px-16 flex flex-col divide-y divide-neutral-700 pb-16">
-  <div class="pt-8 pb-4 flex items-center w-full justify-between">
-    <h1 class="md:text-4xl text-xl font-bold">Resultados da busca por: {{termoBuscado}}</h1>
-    <div class="flex gap-6 items-center">
-      <button type="button" class="flex items-center font-bold text-sm">Mostrar filtros</button>
-      <button type="button" class="flex items-center font-bold text-sm">Ordenar</button>
-    </div>
-  </div>
-
+<div class="px-4 md:px-16 flex w-full flex-col divide-y divide-neutral-700 pb-16">
   @if (resultadosBusca.length > 0) {
-    <div class="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-12 py-4">
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-12 py-4 w-full">
       @for (produto of resultadosBusca; track produto.id) {
-      <div>
-        <a [routerLink]="['/item/', produto.nome, produto.id]" class="group">
+      @for (variante of produto.variantes; track variante.id) {
+      <div class="w-fit">
+        <a [routerLink]="['/item/', produto.id, produto.nome, variante.id, variante.nomeCor]" class="group">
           <img [src]="'/shoes/' + produto.id + '/principal.png'" alt="{{produto.nome}}" class="w-full">
           <div class="flex flex-col justify-between h-48 md:h-40 rounded-b-md py-3" >
             <div class="flex flex-col gap-1">
@@ -23,6 +16,7 @@
           </div>
         </a>
       </div>
+      }
       }
     </div>
   } @else {

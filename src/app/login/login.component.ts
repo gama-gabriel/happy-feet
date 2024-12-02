@@ -15,6 +15,7 @@ import { AuthService } from '../auth.service';
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
+
 export class LoginComponent {
   email = "";
   senha = "";
@@ -30,9 +31,9 @@ export class LoginComponent {
 
   logar() {
     let cliente = new Cliente();
-    cliente.nome = "admin";
-    cliente.email = "admin@email.com";
-    cliente.senha = "admin123";
+    cliente.nome = "gabriel";
+    cliente.email = "gabriel@email.com";
+    cliente.senha = "gabriel123";
 
     if (cliente.email == this.email && cliente.senha == this.senha) {
       this.clienteService.logar(cliente);
@@ -46,6 +47,10 @@ export class LoginComponent {
 
   login() {
     this.authService.login(this.email, this.senha)
+  }
+
+  esqueci() {
+      this.router.navigate(["/"]);
   }
 }
 
