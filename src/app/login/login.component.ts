@@ -50,7 +50,7 @@ export class LoginComponent {
   }
 
   esqueci() {
-      this.router.navigate(["/"]);
+    this.router.navigate(["/esqueci"]);
   }
 }
 
