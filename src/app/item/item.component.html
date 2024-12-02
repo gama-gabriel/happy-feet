@@ -10,7 +10,7 @@
         <button type="" *ngFor="let i of item.tamanhos" class="rounded-lg border-2 border-neutral-500 p-3 items-center justify-center" [ngClass]="{'bg-neutral-300 border-neutral-50': i === item.tamanhoSelecionado, 'bg-transparent': i !== item.tamanhoSelecionado}" (click)="selecionarTamanho(i)">{{i}}</button>
       </div>
       <hlm-toaster class="bg-neutral-100"/>
-      <button type="" (click)="adicionarAoCarrinho(item)" class="w-full bg-white rounded-2xl text-white text-lg font-bold flex place-center rounded-2xl p-4 items-center justify-center">Adicionar ao carrinho</button>
+      <button type="" (click)="adicionarAoCarrinho(item)" class="w-full bg-black rounded-2xl text-white text-lg font-bold flex place-center rounded-2xl p-4 items-center justify-center">Adicionar ao carrinho</button>
       @if (semTamanho) {
         <p class="text-red-300">Selecione um tamanho!</p>
       }
