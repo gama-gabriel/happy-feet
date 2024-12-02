@@ -1,13 +1,13 @@
-@if (item.codigo > 0) {
+@if (item.id > 0) {
   <div class="md:grid md:flex-1 md:grid-cols-[minmax(0,1fr)_25rem] md:gap-10 md:py-10 md:px-16 flex flex-col">
-    <img [src]="'/shoes/' + item.codigo + '/principal.png'" alt="{{item.nome}}" class="flex w-full">
+    <img [src]="'/shoes/' + item.id + '/principal.png'" alt="{{item.nome}}" class="flex w-full">
     <div class="flex flex-col gap-2 px-4 py-6 md:py-0">
       <h1 class="font-bold text-4xl">{{item.nome}}</h1>
       <p>{{item.categoria}} - {{item.genero}}</p>
       <p class="text-2xl font-bold py-4">{{item.preco | currency: "BRL":'symbol':'.2-2'}}</p>
       <p class="pb-2 font-bold">Tamanhos</p>
       <div class="grid grid-cols-4 md:grid-cols-6 gap-4 pb-5">
-        <button type="" *ngFor="let i of range(item.tamanhos[0], item.tamanhos[1])" class="rounded-md border-2 border-neutral-200 p-3 items-center justify-center" [ngClass]="{'bg-neutral-800 border-neutral-50': i === item.tamanhoSelecionado, 'bg-transparent': i !== item.tamanhoSelecionado}" (click)="selecionarTamanho(i)">{{i}}</button>
+        <button type="" *ngFor="let i of item.tamanhos" class="rounded-md border-2 border-neutral-500 p-3 items-center justify-center" [ngClass]="{'bg-neutral-600 border-neutral-50': i === item.tamanhoSelecionado, 'bg-transparent': i !== item.tamanhoSelecionado}" (click)="selecionarTamanho(i)">{{i}}</button>
       </div>
       <hlm-toaster class="bg-neutral-950"/>
       <button type="" (click)="adicionarAoCarrinho(item)" class="w-full bg-white text-black text-lg font-bold flex place-center rounded-2xl p-4 items-center justify-center">Adicionar ao carrinho</button>

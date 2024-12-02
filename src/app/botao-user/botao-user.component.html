@@ -3,7 +3,7 @@
         <hlm-icon name="lucideUser" class="px-2 text-neutral-400 h-10 w-10"/>
       </button>
     <div hlmPopoverContent class="flex flex-col p-6 gap-3 w-48 bg-neutral-950 border-neutral-500" *brnPopoverContent="let ctx">
-    @if (cliente.codigo > 0) {
+    @if (cliente.id == "") {
       <p class="">Olá, {{cliente.nome}}!</p>
       <button (click)="sair()" class="w-full font-bold rounded-lg p-3 text-start hover:bg-neutral-900">Sair</button>
     } @else {

@@ -31,12 +31,12 @@ export class ClienteService {
 
   cadastar(obj: Cliente) {
     let cliente = this.getCurrentCliente();
-    if (cliente.codigo == 1) {
+    if (cliente.id == "") {
       this.atualizar(cliente)
       return;
     }
     cliente = obj;
-    cliente.codigo = 1;
+    cliente.id = "";
     localStorage.setItem('cliente', JSON.stringify(cliente));
     this.clienteSubject.next(cliente);
     toast('Cadastro realizado com sucesso!', {});
@@ -44,12 +44,12 @@ export class ClienteService {
 
   logar(obj: Cliente) {
     let cliente = this.getCurrentCliente();
-    if (cliente.codigo == 1) {
+    if (cliente.id == "") {
       this.atualizar(cliente)
       return;
     }
     cliente = obj;
-    cliente.codigo = 1;
+    cliente.id = "";
     localStorage.setItem('cliente', JSON.stringify(cliente));
     this.clienteSubject.next(cliente);
     toast('Login realizado com sucesso', {});

@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { ClienteService } from '../cliente.service';
 import { Cliente } from '../model/cliente';
 import { HlmToasterComponent } from '@spartan-ng/ui-sonner-helm';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-cadastro',
@@ -15,15 +16,16 @@ import { HlmToasterComponent } from '@spartan-ng/ui-sonner-helm';
 export class CadastroComponent {
   cliente = new Cliente();
 
-  constructor(private clienteService: ClienteService) { }
+  constructor(private authService: AuthService) { }
 
-  ngOnInit(): void {
-    this.clienteService.cliente$.subscribe(cliente => {
-      this.cliente = cliente;
+  register() {
+    this.authService.register(this.cliente).subscribe({
+      next: (response) => {
+        console.log('Registration successful', response);
+      },
+      error: (err) => {
+        console.error('Registration failed', err);
+      }
     });
-  }
-
-  cadastrar() {
-    this.clienteService.cadastar(this.cliente);
   }
 }

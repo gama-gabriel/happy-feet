@@ -10,7 +10,7 @@ export const routes: Routes = [
   { path: "", component: VitrineComponent },
   { path: 'vitrine', component: VitrineComponent },
   { path: 'busca', component: BuscaComponent },
-  { path: 'item/:nome/:id', component: ItemComponent },
+  { path: 'item/:id/:nome/:cor/:variante', component: ItemComponent },
   { path: 'carrinho', component: CarrinhoComponent },
   { path: 'login', component: LoginComponent },
   { path: 'cadastro', component: CadastroComponent },

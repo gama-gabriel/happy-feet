@@ -1,5 +1,5 @@
 export class Cliente {
-  public codigo: number = 0;
+  public id: string = "";
   public nome: string = "";
   public email: string = "";
   public documento: string = "";
@@ -10,4 +10,5 @@ export class Cliente {
   public estado: string = "";
   public complemento: string = "";
   public senha: string = "";
+  public role: string = "";
 }

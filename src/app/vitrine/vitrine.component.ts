@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { listaProdutos, Produto } from '../model/produto';
 import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { DataService } from '../data.service';
@@ -14,7 +13,6 @@ import { DataService } from '../data.service';
 })
 export class VitrineComponent {
   constructor(private dataService: DataService) { }
-  public lista: Produto[] = listaProdutos;
   public listaApi: any;
 
   ngOnInit() {
@@ -28,9 +26,6 @@ export class VitrineComponent {
           this.listaApi = data;
           console.log(this.listaApi);
         },
-        error => {
-          console.log(error);
-        }
       )
   }
 }

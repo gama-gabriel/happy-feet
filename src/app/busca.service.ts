@@ -1,31 +1,28 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { listaProdutos, Produto } from './model/produto';
+import { Produto } from './model/produto';
+import { DataService } from './data.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class BuscaService {
-  private lista: Produto[] = listaProdutos;
 
-  constructor() { }
+export class BuscaService {
+  constructor(private dataService: DataService) { }
+
 
   getAllItems(): Observable<any[]> {
-    return of(this.lista);
+    return this.dataService.getData();
   }
 
-  getItemById(id: string | number): Observable<any> {
-    const item = this.lista.find(item => item.codigo === +id);
-    return of(item);
+  getItemById(id: number): Observable<any> {
+    return this.dataService.getDataById(id);
   }
 
   buscar(term: string): Observable<any[]> {
     if (!term.trim()) {
       return of([]);
     }
-    const resultado = this.lista.filter(item =>
-      item.keywords.toLowerCase().includes(term.toLowerCase())
-    );
-    return of(resultado);
+    return this.dataService.searchData(term);
   }
 }

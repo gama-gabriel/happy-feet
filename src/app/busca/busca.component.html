@@ -9,11 +9,11 @@
 
   @if (resultadosBusca.length > 0) {
     <div class="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-12 py-4">
-      @for (produto of resultadosBusca; track produto.codigo) {
+      @for (produto of resultadosBusca; track produto.id) {
       <div>
-        <a [routerLink]="['/item/', produto.nome, produto.codigo]" class="group">
-          <img [src]="'/shoes/' + produto.codigo + '/principal.png'" alt="{{produto.nome}}" class="w-full">
-          <div class="flex flex-col justify-between h-48 md:h-40 bg-neutral-900 rounded-b-md p-3 border-x border-b border-neutral-700 group-hover:bg-neutral-800">
+        <a [routerLink]="['/item/', produto.nome, produto.id]" class="group">
+          <img [src]="'/shoes/' + produto.id + '/principal.png'" alt="{{produto.nome}}" class="w-full">
+          <div class="flex flex-col justify-between h-48 md:h-40 rounded-b-md py-3" >
             <div class="flex flex-col gap-1">
               <p class="w-fit font-bold">{{produto.nome}}</p>
               <p class="w-fit">{{produto.genero}}</p>

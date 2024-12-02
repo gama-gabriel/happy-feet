@@ -3,16 +3,16 @@
         <hlm-icon name="lucideShoppingCart" class="px-2 text-neutral-400 h-10 w-10"/>
 
       </button>
-      <div hlmPopoverContent class="w-80 flex flex-col gap-4 bg-neutral-950 border-neutral-400 items-start justify-center" *brnPopoverContent="let ctx">
+      <div hlmPopoverContent class="w-80 flex flex-col gap-4 bg-neutral-100 border-neutral-400 text-black items-start justify-center" *brnPopoverContent="let ctx">
         <h4 class="text-lg font-bold">Carrinho</h4>
-      @if (cesta.codigo > 0) {
+      @if (cesta.id > 0) {
         <div class="flex flex-col items-start justify-center gap-6 text-sm w-full">
           <div class="flex w-full justify-start gap-8">
             <p class="text-ellipsis line-clamp-1 w-24">Nome</p>
             <p class="w-4">Qtd.</p>
             <p class="w-12">Valor</p>
           </div>
-          @for (item of cesta.itens; track item.codigo) {
+          @for (item of cesta.itens; track item.id) {
             <div class="flex w-full justify-start gap-8">
               <p class="text-ellipsis line-clamp-1 w-24">{{item.produto.nome}}</p>
               <p class="w-4">{{item.quantidade}}</p>
@@ -20,7 +20,7 @@
             </div>
           }
           <p class="font-bold pt-6 text-lg">Total: {{cesta.total | currency: "BRL":'symbol':'.2-2'}}</p>
-          <a href="/carrinho" class="font-bold py-3 text-lg bg-white text-black w-full px-8 rounded-lg flex items-center justify-center">Ver detalhes</a>
+          <a href="/carrinho" class="font-bold py-3 text-lg bg-black text-white w-full px-8 rounded-lg flex items-center justify-center">Ver detalhes</a>
         </div>
       } @else {
        <p>Seu carrinho está vazio</p>

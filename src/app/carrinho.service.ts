@@ -49,17 +49,17 @@ export class CarrinhoService {
     let found = false;
 
     if (cesta.itens.length == 0) {
-      item.codigo = obj.codigo;
+      item.id = obj.id;
       item.produto = obj;
       item.quantidade = 1;
       item.valor = obj.preco;
-      cesta.codigo = 1;
+      cesta.id = 1;
       cesta.total = obj.preco;
       cesta.itens.push(item);
       if (cliente) cesta.cliente = cliente;
     } else {
       for (let i = 0; i < cesta.itens.length; i++) {
-        if (cesta.itens[i].codigo === obj.codigo) {
+        if (cesta.itens[i].id === obj.id) {
           cesta.itens[i].quantidade += 1;
           cesta.itens[i].valor = cesta.itens[i].quantidade * cesta.itens[i].produto.preco;
           cesta.itens[i].tamanhos.push(obj.tamanhoSelecionado as number);
@@ -68,7 +68,7 @@ export class CarrinhoService {
         }
       }
       if (!found) {
-        item.codigo = obj.codigo;
+        item.id = obj.id;
         item.produto = obj;
         item.quantidade = 1;
         item.valor = obj.preco;

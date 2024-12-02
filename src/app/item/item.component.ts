@@ -21,12 +21,12 @@ export class ItemComponent implements OnInit {
   get semTamanho(): boolean {
     return this.carrinhoService.semTamanho;
   }
-
-  range(floor: number, ceiling: number): number[] {
-    const length = ceiling - floor + 1;
-    return Array.from({ length }, (_, index) => floor + index);
-  }
-
+  //
+  //  range(floor: number, ceiling: number): number[] {
+  //    const length = ceiling - floor + 1;
+  //    return Array.from({ length }, (_, index) => floor + index);
+  //  }
+  //
   constructor(
     private route: ActivatedRoute,
     private searchService: BuscaService,
@@ -34,7 +34,8 @@ export class ItemComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    const itemId = this.route.snapshot.paramMap.get('id');
+    const itemId = Number(this.route.snapshot.paramMap.get('id'));
+    const varianteId = this.route.snapshot.paramMap.get('variante');
 
     if (itemId) {
       this.searchService.getItemById(itemId).subscribe({

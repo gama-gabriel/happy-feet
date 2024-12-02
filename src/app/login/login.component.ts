@@ -6,6 +6,7 @@ import { Cliente } from '../model/cliente';
 import { HlmToasterComponent } from '@spartan-ng/ui-sonner-helm';
 import { Router } from '@angular/router';
 import { toast } from 'ngx-sonner';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-login',
@@ -19,7 +20,7 @@ export class LoginComponent {
   senha = "";
   cliente = new Cliente();
 
-  constructor(private clienteService: ClienteService, private router: Router) { }
+  constructor(private clienteService: ClienteService, private router: Router, private authService: AuthService) { }
 
   ngOnInit(): void {
     this.clienteService.cliente$.subscribe(cliente => {
@@ -29,7 +30,6 @@ export class LoginComponent {
 
   logar() {
     let cliente = new Cliente();
-    cliente.codigo = 2;
     cliente.nome = "admin";
     cliente.email = "admin@email.com";
     cliente.senha = "admin123";
@@ -42,6 +42,10 @@ export class LoginComponent {
       return;
     }
     toast('E-mail ou senha incorretos', {});
+  }
+
+  login() {
+    this.authService.login(this.email, this.senha)
   }
 }
 
