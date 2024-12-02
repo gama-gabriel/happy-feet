@@ -23,7 +23,7 @@ export class CadastroComponent {
     });
   }
 
-  cadastrar() {
+  register() {
     this.clienteService.cadastar(this.cliente);
   }
 }
