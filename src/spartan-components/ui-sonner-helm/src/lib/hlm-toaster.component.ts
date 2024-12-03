@@ -51,7 +51,7 @@ export class HlmToasterComponent {
   toastOptions = input<ToasterProps['toastOptions']>({
     classes: {
       toast:
-        'group toast group-[.toaster]:bg-neutral-950 group-[.toaster]:text-foreground group-[.toaster]:border-neutral-400 group-[.toaster]:shadow-lg',
+        'group toast group-[.toaster]:bg-white group-[.toaster]:text-foreground group-[.toaster]:border-neutral-400 group-[.toaster]:shadow-lg',
       description: 'group-[.toast]:text-muted-foreground',
       actionButton: 'group-[.toast]:bg-primary group-[.toast]:text-primary-foreground',
       cancelButton: 'group-[.toast]:bg-muted group-[.toast]:text-muted-foreground',

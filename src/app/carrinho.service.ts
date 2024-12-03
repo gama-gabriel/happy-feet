@@ -79,6 +79,7 @@ export class CarrinhoService {
     cesta.total = cesta.itens.reduce((acc, curr) => acc + curr.valor, 0);
 
     localStorage.setItem('cesta', JSON.stringify(cesta));
+    console.log(cesta);
     this.carrinhoSubject.next(cesta);
 
     toast('Item adicionado ao carrinho', {
